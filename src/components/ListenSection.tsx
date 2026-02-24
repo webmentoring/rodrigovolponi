@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const ListenSection = () => {
   return (
-    <section id="ouvir" className="py-24 lg:py-32">
+    <section id="listen" className="py-24 lg:py-32 bg-card">
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -12,10 +12,10 @@ const ListenSection = () => {
           className="text-center mb-16"
         >
           <p className="font-body text-sm tracking-[0.4em] uppercase text-primary mb-4">
-            Ouça
+            Listen
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-medium">
-            Minha <span className="italic text-primary">Música</span>
+            My <span className="italic text-primary">Music</span>
           </h2>
           <div className="h-px w-20 line-gold mx-auto mt-8" />
         </motion.div>

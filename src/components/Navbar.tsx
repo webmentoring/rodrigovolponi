@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Trabalhos", href: "#filmografia" },
-  { label: "Ouvir", href: "#ouvir" },
-  { label: "Contato", href: "#contato" },
+  { label: "About", href: "#about" },
+  { label: "Listen", href: "#listen" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
