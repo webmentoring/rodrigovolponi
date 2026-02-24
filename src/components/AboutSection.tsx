@@ -24,8 +24,8 @@ const AboutSection = () => {
 
 
           </p>
-          <p className="font-body text-muted-foreground text-lg leading-relaxed">
-            His diverse musical background and passion for storytelling have led him to collaborate with directors and producers on projects ranging from independent short films to larger-scale productions. Each project is an opportunity to explore new sonic landscapes and create a unique musical identity.
+          <p className="font-body text-muted-foreground text-lg leading-relaxed">His compositions often engage with themes of boundary and transcendence, translating into sound the experience of crossing into the unknown. The result is a writing style that combines structural discipline, harmonic expansion, and emotional intensity, designed to sustain moments of contemplation, conflict, or cinematic climax.
+
           </p>
         </motion.div>
       </div>
