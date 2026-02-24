@@ -26,8 +26,8 @@ const HeroSection = () => {
               alt="Rodrigo Volponi - Composer"
               className="w-full h-full object-cover object-top"
               style={{
-                maskImage: "linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, black 85%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, black 85%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 70%, transparent 100%), linear-gradient(to right, black 60%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 70%, transparent 100%), linear-gradient(to right, black 60%, transparent 100%)",
                 maskComposite: "intersect",
                 WebkitMaskComposite: "destination-in",
               }}
