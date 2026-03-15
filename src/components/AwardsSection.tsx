@@ -6,12 +6,12 @@ const awards = [
   {
     image: laurelHellChess,
     festival: "Hell Chess Festival",
-    country: "France",
+    country: "Spain",
   },
   {
     image: laurelIndieFilm,
     festival: "International Indie Film & Screenplay Festival",
-    country: "Spain",
+    country: "France",
   },
 ];
 
