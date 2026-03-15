@@ -6,12 +6,12 @@ const awards = [
   {
     image: laurelHellChess,
     festival: "Hell Chess Festival",
-    country: "France",
+    country: "Spain",
   },
   {
     image: laurelIndieFilm,
     festival: "International Indie Film & Screenplay Festival",
-    country: "Spain",
+    country: "France",
   },
 ];
 
@@ -34,7 +34,7 @@ const AwardsSection = () => {
             <span className="italic text-primary">Best Score of the Year</span>
           </h2>
           <p className="font-body text-muted-foreground text-lg mb-14 max-w-2xl mx-auto">
-            One of my compositions was nominated as Best Music of the Year by two prestigious international film festivals.
+            Recognised across international film festivals for excellence in original composition and cinematic scoring.
           </p>
           <div className="h-px w-20 line-gold mx-auto mb-14" />
 
