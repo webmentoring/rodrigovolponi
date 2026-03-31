@@ -30,7 +30,7 @@ const AwardsSection = () => {
             Recognition
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-medium mb-4">
-            Nominated for{" "}
+            Nominated &amp; Awarded for{" "}
             <span className="italic text-primary">Best Song of the Year</span>
           </h2>
           <p className="font-body text-muted-foreground text-lg mb-14 max-w-2xl mx-auto">
