@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useCallback } from "react";
 import laurelHellChess from "@/assets/laurel-hell-chess.png";
 import laurelIndieFilm from "@/assets/laurel-indie-film.png";
@@ -29,14 +29,15 @@ const awards = [
 ];
 
 const AwardsSection = () => {
-  const [current, setCurrent] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleCount = 3;
 
   const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % awards.length);
+    setStartIndex((prev) => (prev + 1) % awards.length);
   }, []);
 
   const prev = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + awards.length) % awards.length);
+    setStartIndex((prev) => (prev - 1 + awards.length) % awards.length);
   }, []);
 
   useEffect(() => {
@@ -44,9 +45,19 @@ const AwardsSection = () => {
     return () => clearInterval(interval);
   }, [next]);
 
+  const getVisibleAwards = () => {
+    const visible = [];
+    for (let i = 0; i < visibleCount; i++) {
+      visible.push(awards[(startIndex + i) % awards.length]);
+    }
+    return visible;
+  };
+
+  const visibleAwards = getVisibleAwards();
+
   return (
     <section className="py-20 lg:py-28">
-      <div className="container mx-auto px-6 max-w-4xl">
+      <div className="container mx-auto px-6 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +82,7 @@ const AwardsSection = () => {
           <div className="relative flex items-center justify-center">
             <button
               onClick={prev}
-              className="absolute left-0 md:left-8 z-10 p-2 text-muted-foreground hover:text-primary transition-colors"
+              className="absolute -left-2 md:left-0 z-10 p-2 text-muted-foreground hover:text-primary transition-colors"
               aria-label="Previous award"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -79,33 +90,42 @@ const AwardsSection = () => {
               </svg>
             </button>
 
-            <div className="overflow-hidden w-64 md:w-72 mx-auto">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-col items-center gap-4"
-              >
-                <img
-                  src={awards[current].image}
-                  alt={`${awards[current].festival}`}
-                  className="w-56 md:w-64 h-auto"
-                  style={{
-                    filter:
-                      "invert(1) sepia(0.4) saturate(2) hue-rotate(5deg) brightness(0.85)"
-                  }}
-                />
-                <span className="font-body text-sm text-muted-foreground tracking-wide">
-                  {awards[current].country}
-                </span>
-              </motion.div>
+            <div className="overflow-hidden mx-12 md:mx-16 w-full">
+              <AnimatePresence mode="popLayout">
+                <motion.div
+                  key={startIndex}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-3 gap-6 md:gap-12"
+                >
+                  {visibleAwards.map((award) => (
+                    <div
+                      key={award.festival}
+                      className="flex flex-col items-center gap-4"
+                    >
+                      <img
+                        src={award.image}
+                        alt={award.festival}
+                        className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto"
+                        style={{
+                          filter:
+                            "invert(1) sepia(0.4) saturate(2) hue-rotate(5deg) brightness(0.85)"
+                        }}
+                      />
+                      <span className="font-body text-xs md:text-sm text-muted-foreground tracking-wide">
+                        {award.country}
+                      </span>
+                    </div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             <button
               onClick={next}
-              className="absolute right-0 md:right-8 z-10 p-2 text-muted-foreground hover:text-primary transition-colors"
+              className="absolute -right-2 md:right-0 z-10 p-2 text-muted-foreground hover:text-primary transition-colors"
               aria-label="Next award"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -119,9 +139,9 @@ const AwardsSection = () => {
             {awards.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrent(index)}
+                onClick={() => setStartIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === current
+                  index === startIndex
                     ? "bg-primary w-6"
                     : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                 }`}
