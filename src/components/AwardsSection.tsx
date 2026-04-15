@@ -50,7 +50,7 @@ const AwardsSection = () => {
           </p>
           <div className="h-px w-20 line-gold mx-auto mb-14" />
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
             {awards.map((award, index) =>
             <motion.div
               key={award.festival}
