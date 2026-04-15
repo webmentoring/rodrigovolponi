@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import laurelHellChess from "@/assets/laurel-hell-chess.png";
 import laurelIndieFilm from "@/assets/laurel-indie-film.png";
 import laurelHollywood from "@/assets/laurel-hollywood.png";
+import laurelEthos from "@/assets/laurel-ethos.png";
 
 const awards = [
 {
@@ -17,6 +18,11 @@ const awards = [
 {
   image: laurelHollywood,
   festival: "Hollywood International Indie Film & Screenplay Awards",
+  country: "USA"
+},
+{
+  image: laurelEthos,
+  festival: "ETHOS Film Awards",
   country: "USA"
 }];
 
