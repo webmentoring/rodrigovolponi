@@ -4,6 +4,7 @@ import laurelHellChess from "@/assets/laurel-hell-chess.png";
 import laurelIndieFilm from "@/assets/laurel-indie-film.png";
 import laurelHollywood from "@/assets/laurel-hollywood.png";
 import laurelEthos from "@/assets/laurel-ethos.png";
+import laurelCannes from "@/assets/laurel-cannes.png";
 
 const awards = [
   {
@@ -25,6 +26,11 @@ const awards = [
     image: laurelEthos,
     festival: "ETHOS Film Awards",
     country: "USA"
+  },
+  {
+    image: laurelCannes,
+    festival: "Remember the Future World Film Festival in Cannes",
+    country: "France"
   }
 ];
 
